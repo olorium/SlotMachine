@@ -43,6 +43,15 @@ struct ImageModifier: ViewModifier {
 	}
 }
 
+struct BetNumberModifier: ViewModifier {
+	func body(content: Content) -> some View {
+		content
+			.font(.system(.title, design: .rounded))
+			.padding(.vertical, 5)
+			.frame(width: 90)
+	}
+}
+
 extension View {
 	func customShadow() -> some View {
 		modifier(ShadowModifier())
@@ -58,5 +67,9 @@ extension View {
 
 	func imageModifier() -> some View {
 		modifier(ImageModifier())
+	}
+
+	func betNumberModifier() -> some View {
+		modifier(BetNumberModifier())
 	}
 }

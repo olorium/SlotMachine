@@ -85,6 +85,57 @@ struct ContentView: View {
 				.layoutPriority(2)
 
 				Spacer()
+				// MARK: - Bet buttons
+				HStack {
+					HStack(alignment: .center, spacing: 10) {
+						Button {
+
+						} label: {
+							Text("20")
+								.fontWeight(.heavy)
+								.foregroundColor(.white)
+								.betNumberModifier()
+								.customShadow()
+						}
+						.background(
+							Capsule()
+								.fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .top, endPoint: .bottom))
+								.customShadow()
+						).padding(3)
+
+						Image("gfx-casino-chips")
+							.resizable()
+							.opacity(0)
+							.scaledToFit()
+							.frame(height: 64)
+							.animation(.default)
+							.customShadow()
+					}
+
+					HStack(alignment: .center, spacing: 10) {
+						Image("gfx-casino-chips")
+							.resizable()
+							.opacity(1)
+							.scaledToFit()
+							.frame(height: 64)
+							.animation(.default)
+							.customShadow()
+						Button {
+
+						} label: {
+							Text("10")
+								.fontWeight(.heavy)
+								.foregroundColor(.yellow)
+								.betNumberModifier()
+								.customShadow()
+						}
+						.background(
+							Capsule()
+								.fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .top, endPoint: .bottom))
+								.customShadow()
+						).padding(3)
+					}
+				}
 			}
 			.overlay(
 				Button {
