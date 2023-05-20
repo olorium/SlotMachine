@@ -46,6 +46,44 @@ struct ContentView: View {
 					.scoreContainerStyle()
 				}
 
+				// MARK: - Slot Machine
+				VStack(alignment: .center, spacing: 0) {
+					ZStack {
+						ReelView()
+						Image("gfx-bell")
+							.resizable()
+							.imageModifier()
+					}
+
+					HStack(alignment: .center, spacing: 0) {
+						ZStack {
+							ReelView()
+							Image("gfx-seven")
+								.resizable()
+								.imageModifier()
+						}
+						Spacer()
+						ZStack {
+							ReelView()
+							Image("gfx-cherry")
+								.resizable()
+								.imageModifier()
+						}
+					}
+					.frame(maxWidth: 500)
+
+					Button {
+
+					} label: {
+						Image("gfx-spin")
+							.renderingMode(.original)
+							.resizable()
+							.imageModifier()
+					}
+
+				}
+				.layoutPriority(2)
+
 				Spacer()
 			}
 			.overlay(
