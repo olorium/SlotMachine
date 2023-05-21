@@ -16,6 +16,10 @@ final class ContentViewModel: ObservableObject {
 	@Published var coins = 100
 	/// Bet amount in every spin.
 	@Published var betAmount = 10
+	/// Flag to track when bet 10 is active.
+	@Published var isActiveBet10 = true
+	/// Flag to track when bet 20 is active.
+	@Published var isActiveBet20 = false
 	/// Collection of images for the reels.
 	let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
 
@@ -53,5 +57,19 @@ final class ContentViewModel: ObservableObject {
 	/// Sets new high score.
 	func newHighScore() {
 		highScore = coins
+	}
+	
+	/// Sets active bet 20 coins.
+	func activateBet20() {
+		betAmount = 20
+		isActiveBet20 = true
+		isActiveBet10 = false
+	}
+
+	/// Sets active bet 10 coins.
+	func activateBet10() {
+		betAmount = 10
+		isActiveBet10 = true
+		isActiveBet20 = false
 	}
 }

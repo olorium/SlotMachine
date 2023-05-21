@@ -91,11 +91,11 @@ struct ContentView: View {
 				HStack {
 					HStack(alignment: .center, spacing: 10) {
 						Button {
-
+							viewModel.activateBet20()
 						} label: {
 							Text("20")
 								.fontWeight(.heavy)
-								.foregroundColor(.white)
+								.foregroundColor( viewModel.isActiveBet20 ? Color("ColorYellow") : .white)
 								.betNumberModifier()
 								.customShadow()
 						}
@@ -107,7 +107,7 @@ struct ContentView: View {
 
 						Image("gfx-casino-chips")
 							.resizable()
-							.opacity(0)
+							.opacity(viewModel.isActiveBet20 ? 1 : 0)
 							.scaledToFit()
 							.frame(height: 64)
 							.animation(.default)
@@ -117,17 +117,17 @@ struct ContentView: View {
 					HStack(alignment: .center, spacing: 10) {
 						Image("gfx-casino-chips")
 							.resizable()
-							.opacity(1)
+							.opacity(viewModel.isActiveBet10 ? 1 : 0)
 							.scaledToFit()
 							.frame(height: 64)
 							.animation(.default)
 							.customShadow()
 						Button {
-
+							viewModel.activateBet10()
 						} label: {
 							Text("10")
 								.fontWeight(.heavy)
-								.foregroundColor(.yellow)
+								.foregroundColor(viewModel.isActiveBet10 ? Color("ColorYellow") : .white)
 								.betNumberModifier()
 								.customShadow()
 						}
