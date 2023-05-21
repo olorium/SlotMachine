@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
 	// MARK: - Properties
+	@ObservedObject private var viewModel = ContentViewModel()
 	@State private var showingInfoView = false
 
 	// MARK: - Body
     var body: some View {
         ZStack {
-			LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPirple")]), startPoint: .top, endPoint: .bottom)
+			LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .top, endPoint: .bottom)
 				.edgesIgnoringSafeArea(.all)
 
 			VStack(alignment: .center, spacing: 5) {
@@ -27,7 +28,7 @@ struct ContentView: View {
 						Text("Your\nCoins".uppercased())
 							.scoreLabelStyle()
 							.multilineTextAlignment(.trailing)
-						Text("100")
+						Text("\(viewModel.coins)")
 							.scoreNumberStyle()
 							.customShadow()
 							.layoutPriority(1)
@@ -35,7 +36,7 @@ struct ContentView: View {
 					.scoreContainerStyle()
 					Spacer()
 					HStack {
-						Text("200")
+						Text("\(viewModel.highScore)")
 							.scoreNumberStyle()
 							.customShadow()
 							.layoutPriority(1)
@@ -50,7 +51,7 @@ struct ContentView: View {
 				VStack(alignment: .center, spacing: 0) {
 					ZStack {
 						ReelView()
-						Image("gfx-bell")
+						Image(viewModel.symbols[viewModel.reels[0]])
 							.resizable()
 							.imageModifier()
 					}
@@ -58,14 +59,14 @@ struct ContentView: View {
 					HStack(alignment: .center, spacing: 0) {
 						ZStack {
 							ReelView()
-							Image("gfx-seven")
+							Image(viewModel.symbols[viewModel.reels[1]])
 								.resizable()
 								.imageModifier()
 						}
 						Spacer()
 						ZStack {
 							ReelView()
-							Image("gfx-cherry")
+							Image(viewModel.symbols[viewModel.reels[2]])
 								.resizable()
 								.imageModifier()
 						}
@@ -73,7 +74,8 @@ struct ContentView: View {
 					.frame(maxWidth: 500)
 
 					Button {
-
+						viewModel.spinReels()
+						viewModel.checkWinning()
 					} label: {
 						Image("gfx-spin")
 							.renderingMode(.original)
