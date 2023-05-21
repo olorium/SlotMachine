@@ -141,7 +141,7 @@ struct ContentView: View {
 			}
 			.overlay(
 				Button {
-
+					viewModel.resetGame()
 				} label: {
 					Image(systemName: "arrow.2.circlepath.circle")
 				}

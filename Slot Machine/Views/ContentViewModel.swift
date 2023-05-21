@@ -11,7 +11,7 @@ final class ContentViewModel: ObservableObject {
 	/// Collection of reels, where every number represents one reel.
 	@Published var reels = [0, 1 ,2]
 	/// High score in the game.
-	@Published var highScore = 0
+	@Published var highScore = UserDefaults.standard.integer(forKey: "HighScore")
 	/// Number of coins to play with.
 	@Published var coins = 100
 	/// Bet amount in every spin.
@@ -21,7 +21,7 @@ final class ContentViewModel: ObservableObject {
 	/// Flag to track when bet 20 is active.
 	@Published var isActiveBet20 = false
 	/// Indicates either Game Over modal is presented.
-	@Published var showingModal = true
+	@Published var showingModal = false
 	/// Collection of images for the reels.
 	let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
 
@@ -62,6 +62,7 @@ final class ContentViewModel: ObservableObject {
 	/// Sets new high score.
 	func newHighScore() {
 		highScore = coins
+		UserDefaults.standard.set(highScore, forKey: "HighScore")
 	}
 	
 	/// Sets active bet 20 coins.
@@ -76,5 +77,12 @@ final class ContentViewModel: ObservableObject {
 		betAmount = 10
 		isActiveBet10 = true
 		isActiveBet20 = false
+	}
+	/// Resets the game and sets scores and coins to default values.
+	func resetGame() {
+		UserDefaults.standard.set(0, forKey: "HighScore")
+		highScore = 0
+		coins = 100
+		activateBet10()
 	}
 }
