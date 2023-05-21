@@ -159,6 +159,11 @@ struct ContentView: View {
 			)
 			.padding()
 			.frame(maxWidth: 720)
+			.blur(radius: viewModel.showingModal ? 5 : 0, opaque: false)
+
+			if viewModel.showingModal {
+				GameOverView(viewModel: viewModel)
+			}
         }
 		.sheet(isPresented: $showingInfoView) { InfoView() }
     }

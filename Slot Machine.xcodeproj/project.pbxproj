@@ -25,6 +25,7 @@
 		8BAD55B62A1943A5009CD7FC /* ReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD55B52A1943A5009CD7FC /* ReelView.swift */; };
 		8BAD55B82A194C29009CD7FC /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD55B72A194C29009CD7FC /* InfoView.swift */; };
 		8BAD55BA2A1A9763009CD7FC /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD55B92A1A9763009CD7FC /* ContentViewModel.swift */; };
+		8BAD55BC2A1AA880009CD7FC /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD55BB2A1AA880009CD7FC /* GameOverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8BAD55B52A1943A5009CD7FC /* ReelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelView.swift; sourceTree = "<group>"; };
 		8BAD55B72A194C29009CD7FC /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		8BAD55B92A1A9763009CD7FC /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		8BAD55BB2A1AA880009CD7FC /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				8BAD55B52A1943A5009CD7FC /* ReelView.swift */,
 				8BAD55B72A194C29009CD7FC /* InfoView.swift */,
 				8BAD55B92A1A9763009CD7FC /* ContentViewModel.swift */,
+				8BAD55BB2A1AA880009CD7FC /* GameOverView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				8B6C3A192A1902A5000126BA /* ContentView.swift in Sources */,
 				8BAD55B02A190750009CD7FC /* LogoView.swift in Sources */,
 				8B6C3A172A1902A5000126BA /* Slot_MachineApp.swift in Sources */,
+				8BAD55BC2A1AA880009CD7FC /* GameOverView.swift in Sources */,
 				8BAD55B82A194C29009CD7FC /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

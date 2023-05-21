@@ -20,6 +20,8 @@ final class ContentViewModel: ObservableObject {
 	@Published var isActiveBet10 = true
 	/// Flag to track when bet 20 is active.
 	@Published var isActiveBet20 = false
+	/// Indicates either Game Over modal is presented.
+	@Published var showingModal = true
 	/// Collection of images for the reels.
 	let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
 
@@ -32,7 +34,7 @@ final class ContentViewModel: ObservableObject {
 		}
 	}
 
-	/// Checks if winning conditions are met.
+	/// Checks if winning conditions are met after every spin.
 	func checkWinning() {
 		if reels[0] == reels[1] && reels[1] == reels[2] && reels[0] == reels[2] {
 			playerWins()
@@ -41,6 +43,9 @@ final class ContentViewModel: ObservableObject {
 			}
 		} else {
 			playerLoses()
+			if coins <= 0 {
+				showingModal = true
+			}
 		}
 	}
 
