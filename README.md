@@ -1,8 +1,5 @@
 #  Slot machine game created with SwiftUI
-
-<div>
-<img src="./SlotMachine/Slot Machine/1.jpeg, width="600">
-</div>
+![alt text](https://github.com/olorium/SlotMachine/blob/main/Slot%20Machine/1.jpeg?raw=true)
 
 Slot machine game build with Swift, SwiftUI for iOS 14
 
