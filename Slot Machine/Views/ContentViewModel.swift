@@ -5,7 +5,7 @@
 //  Created by Oleksii Vasyliev on 21.05.2023.
 //
 
-import Foundation
+import SwiftUI
 
 final class ContentViewModel: ObservableObject {
 	/// Collection of reels, where every number represents one reel.
@@ -24,6 +24,10 @@ final class ContentViewModel: ObservableObject {
 	@Published var showingModal = false
 	/// Collection of images for the reels.
 	let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
+	/// Sound Player to play sound effects.
+	let soundPlayer = Player()
+	/// Haptics feedback.
+	let haptics = UINotificationFeedbackGenerator()
 
 	// MARK: - Methods
 
@@ -32,6 +36,8 @@ final class ContentViewModel: ObservableObject {
 		reels = reels.map { _ in
 			Int.random(in: 0...symbols.count - 1)
 		}
+		soundPlayer.playSound(sound: "spin", type: "mp3")
+		haptics.notificationOccurred(.success)
 	}
 
 	/// Checks if winning conditions are met after every spin.
@@ -40,11 +46,13 @@ final class ContentViewModel: ObservableObject {
 			playerWins()
 			if coins > highScore {
 				newHighScore()
+				soundPlayer.playSound(sound: "high-score", type: "mp3")
 			}
 		} else {
 			playerLoses()
 			if coins <= 0 {
 				showingModal = true
+				soundPlayer.playSound(sound: "game-over", type: "mp3")
 			}
 		}
 	}
@@ -52,6 +60,7 @@ final class ContentViewModel: ObservableObject {
 	/// Updates number of coins if player wins.
 	func playerWins() {
 		coins += betAmount * 10
+		soundPlayer.playSound(sound: "win", type: "mp3")
 	}
 
 	/// Updates number of coins if player loses.
@@ -70,6 +79,8 @@ final class ContentViewModel: ObservableObject {
 		betAmount = 20
 		isActiveBet20 = true
 		isActiveBet10 = false
+		soundPlayer.playSound(sound: "casino-chips", type: "mp3")
+		haptics.notificationOccurred(.success)
 	}
 
 	/// Sets active bet 10 coins.
@@ -77,6 +88,8 @@ final class ContentViewModel: ObservableObject {
 		betAmount = 10
 		isActiveBet10 = true
 		isActiveBet20 = false
+		soundPlayer.playSound(sound: "casino-chips", type: "mp3")
+		haptics.notificationOccurred(.success)
 	}
 	/// Resets the game and sets scores and coins to default values.
 	func resetGame() {
@@ -84,5 +97,6 @@ final class ContentViewModel: ObservableObject {
 		highScore = 0
 		coins = 100
 		activateBet10()
+		soundPlayer.playSound(sound: "chimeup", type: "mp3")
 	}
 }

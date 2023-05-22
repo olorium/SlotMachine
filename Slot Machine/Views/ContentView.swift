@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
 	// MARK: - Properties
 	@ObservedObject private var viewModel = ContentViewModel()
+	/// Defines when to show InfoView.
 	@State private var showingInfoView = false
 	/// `true` if symbols needs to be animated. `false` by default.
 	@State private var animatingSymbol = false
@@ -61,6 +62,7 @@ struct ContentView: View {
 							.animation(.easeOut(duration: Double.random(in: 0.5...0.7)))
 							.onAppear {
 								animatingSymbol.toggle()
+								viewModel.soundPlayer.playSound(sound: "riseup", type: "mp3")
 							}
 					}
 
