@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B1441452A1BF60D00234A32 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1441442A1BF60D00234A32 /* Player.swift */; };
+		8B1441492A1C021000234A32 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8B1441482A1C021000234A32 /* 1.jpeg */; };
 		8B6C3A172A1902A5000126BA /* Slot_MachineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C3A162A1902A5000126BA /* Slot_MachineApp.swift */; };
 		8B6C3A192A1902A5000126BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C3A182A1902A5000126BA /* ContentView.swift */; };
 		8B6C3A1B2A1902A6000126BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B6C3A1A2A1902A6000126BA /* Assets.xcassets */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		8B1441442A1BF60D00234A32 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8B1441462A1BFD6D00234A32 /* Slot Machine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Slot Machine.entitlements"; sourceTree = "<group>"; };
+		8B1441472A1C017700234A32 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8B1441482A1C021000234A32 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		8B6C3A132A1902A5000126BA /* Slot Machine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slot Machine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B6C3A162A1902A5000126BA /* Slot_MachineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot_MachineApp.swift; sourceTree = "<group>"; };
 		8B6C3A182A1902A5000126BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		8B6C3A0A2A1902A5000126BA = {
 			isa = PBXGroup;
 			children = (
+				8B1441472A1C017700234A32 /* README.md */,
 				8B6C3A152A1902A5000126BA /* Slot Machine */,
 				8B6C3A142A1902A5000126BA /* Products */,
 			);
@@ -85,6 +89,7 @@
 		8B6C3A152A1902A5000126BA /* Slot Machine */ = {
 			isa = PBXGroup;
 			children = (
+				8B1441482A1C021000234A32 /* 1.jpeg */,
 				8B1441462A1BFD6D00234A32 /* Slot Machine.entitlements */,
 				8BAD55AC2A1904C1009CD7FC /* Slot-Machine-Info.plist */,
 				8B6C3A362A190424000126BA /* Helpers */,
@@ -201,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B1441492A1C021000234A32 /* 1.jpeg in Resources */,
 				8B6C3A312A1903FB000126BA /* spin.mp3 in Resources */,
 				8B6C3A2F2A1903FB000126BA /* riseup.mp3 in Resources */,
 				8B6C3A332A1903FB000126BA /* background-music.mp3 in Resources */,
