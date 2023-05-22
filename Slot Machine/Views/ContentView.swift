@@ -11,6 +11,8 @@ struct ContentView: View {
 	// MARK: - Properties
 	@ObservedObject private var viewModel = ContentViewModel()
 	@State private var showingInfoView = false
+	/// `true` if symbols needs to be animated. `false` by default.
+	@State private var animatingSymbol = false
 
 	// MARK: - Body
     var body: some View {
@@ -54,6 +56,12 @@ struct ContentView: View {
 						Image(viewModel.symbols[viewModel.reels[0]])
 							.resizable()
 							.imageModifier()
+							.opacity(animatingSymbol ? 1 : 0)
+							.offset(y: animatingSymbol ? 0 : -50)
+							.animation(.easeOut(duration: Double.random(in: 0.5...0.7)))
+							.onAppear {
+								animatingSymbol.toggle()
+							}
 					}
 
 					HStack(alignment: .center, spacing: 0) {
@@ -62,6 +70,12 @@ struct ContentView: View {
 							Image(viewModel.symbols[viewModel.reels[1]])
 								.resizable()
 								.imageModifier()
+								.opacity(animatingSymbol ? 1 : 0)
+								.offset(y: animatingSymbol ? 0 : -50)
+								.animation(.easeOut(duration: Double.random(in: 0.5...0.7)))
+								.onAppear {
+									animatingSymbol.toggle()
+								}
 						}
 						Spacer()
 						ZStack {
@@ -69,6 +83,12 @@ struct ContentView: View {
 							Image(viewModel.symbols[viewModel.reels[2]])
 								.resizable()
 								.imageModifier()
+								.opacity(animatingSymbol ? 1 : 0)
+								.offset(y: animatingSymbol ? 0 : -50)
+								.animation(.easeOut(duration: Double.random(in: 0.5...0.7)))
+								.onAppear {
+									animatingSymbol.toggle()
+								}
 						}
 					}
 					.frame(maxWidth: 500)
@@ -107,6 +127,7 @@ struct ContentView: View {
 
 						Image("gfx-casino-chips")
 							.resizable()
+							.offset(x: viewModel.isActiveBet20 ? 0 : 20)
 							.opacity(viewModel.isActiveBet20 ? 1 : 0)
 							.scaledToFit()
 							.frame(height: 64)
@@ -114,9 +135,12 @@ struct ContentView: View {
 							.customShadow()
 					}
 
+					Spacer()
+
 					HStack(alignment: .center, spacing: 10) {
 						Image("gfx-casino-chips")
 							.resizable()
+							.offset(x: viewModel.isActiveBet10 ? 0 : -20)
 							.opacity(viewModel.isActiveBet10 ? 1 : 0)
 							.scaledToFit()
 							.frame(height: 64)

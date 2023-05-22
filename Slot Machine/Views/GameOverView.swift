@@ -10,6 +10,9 @@ import SwiftUI
 struct GameOverView: View {
 
 	// MARK: - Properties
+	/// `true` if modal needs to be animated. `false` by default.
+	@State private var animatingModal = false
+	/// ViewModel for this view.
 	var viewModel: ContentViewModel
 
 	// MARK: - Body
@@ -39,6 +42,7 @@ struct GameOverView: View {
 						.layoutPriority(1)
 					Button {
 						viewModel.showingModal = false
+						animatingModal = false
 						viewModel.coins = 100
 					} label: {
 						Text("New game".uppercased())
@@ -62,6 +66,12 @@ struct GameOverView: View {
 			.background(Color.white)
 			.cornerRadius(20)
 			.customShadow()
+			.opacity($animatingModal.wrappedValue ? 1 : 0)
+			.offset(y: $animatingModal.wrappedValue ? 0 : -100)
+			.animation(.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0))
+			.onAppear {
+				animatingModal = true
+			}
 		}
     }
 }
